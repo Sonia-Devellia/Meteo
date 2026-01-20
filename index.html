@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Météo – Open-Meteo</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Données météorologiques</h1>
+
+    <p class="intro">
+      Cette application permet de consulter des données météorologiques à partir
+      de coordonnées géographiques. Les informations sont récupérées en temps
+      réel depuis le service Open-Meteo grâce à des requêtes JavaScript
+      asynchrones. Les résultats sont ensuite affichés dynamiquement sous forme
+      de tableau et de graphique afin de faciliter leur lecture et leur analyse.
+    </p>
+
+    <form id="formulaireMeteo">
+      <div class="row">
+        <label>
+          Latitude
+          <input
+            id="latitude"
+            type="number"
+            step="0.0001"
+            value="47.6582"
+            required
+          />
+        </label>
+
+        <label>
+          Longitude
+          <input
+            id="longitude"
+            type="number"
+            step="0.0001"
+            value="-2.7608"
+            required
+          />
+        </label>
+      </div>
+
+      <div class="row">
+        <label>
+          Date de début
+          <input id="dateDebut" type="date" required />
+        </label>
+
+        <label>
+          Date de fin
+          <input id="dateFin" type="date" required />
+        </label>
+      </div>
+
+      <fieldset>
+        <legend>Données météo à afficher</legend>
+        <label>
+          <input type="checkbox" name="donneeMeteo" value="temperature_2m" checked>
+          Température en °C
+        </label>
+        <label>
+          <input type="checkbox" name="donneeMeteo" value="wind_speed_10m" checked>
+          Vent en km/h
+        </label>
+        <label>
+          <input type="checkbox" name="donneeMeteo" value="precipitation" checked>
+          Précipitations en mm
+        </label>
+      </fieldset>
+
+      <button id="boutonAfficher" type="submit">Afficher les données</button>
+    </form>
+
+    <p id="messageEtat"></p>
+
+    <section id="analyse" class="bloc-analyse"></section>
+
+    <div class="bloc-graphique">
+      <canvas
+        id="graphiqueMeteo"
+        aria-label="Graphique météo"
+        role="img"
+      ></canvas>
+    </div>
+
+    <div id="resultat"></div>
+
+    <!--Script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
