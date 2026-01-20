@@ -42,7 +42,7 @@ L’objectif principal de ce projet est de mettre en pratique :
 /projet-meteo
 ├── index.html
 ├── style.css
-└── app.js
+└── script.js
 
 
 ---
